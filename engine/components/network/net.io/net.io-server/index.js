@@ -953,7 +953,7 @@ NetIo.Server = NetIo.EventingClass.extend({
 				sessionId: socket._token.sessionId,
 				isAdBlockEnabled: false
 			};
-			const isMobile = request.headers['user-agent']?.test(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop|moddioapp/i);
+			const isMobile = !!request.headers['user-agent']?.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop|moddioapp/i);
 			joinGameData.isMobile = isMobile;
 			const clientId = socket.id;
 
@@ -995,7 +995,7 @@ NetIo.Server = NetIo.EventingClass.extend({
 					sessionId: socket._token.sessionId,
 					isAdBlockEnabled: false
 				};
-				const isMobile = request.headers['user-agent']?.test(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop|moddioapp/i);
+				const isMobile = !!request.headers['user-agent']?.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop|moddioapp/i);
 				joinGameData.isMobile = isMobile;
 				const clientId = socket.id;
 
