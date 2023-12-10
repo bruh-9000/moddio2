@@ -1445,7 +1445,7 @@ var ActionComponent = TaroEntity.extend({
 
 					case 'createFloatingText':
 						var position = self._script.variable.getValue(action.position, vars);
-						var text = self._script.variable.getValue(action.text, vars);
+						var text = self.filter.cleanHacked(self._script.variable.getValue(action.text, vars));
 						var color = self._script.variable.getValue(action.color, vars);
 						if (taro.isServer) {
 							taro.network.send('createFloatingText', { position: position, text: text, color: color });
