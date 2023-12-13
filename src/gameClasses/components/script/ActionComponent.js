@@ -2789,9 +2789,13 @@ var ActionComponent = TaroEntity.extend({
 						unit._stats.inventorySize = 6
 						unit._stats.equipmentAllowed = 6
 						unit._stats.itemIds.push(null);
+						//unit.update();
+						//unit.inventory.createInventorySlots();
+						//unit.updateStats();
+						//unit.updateStats(item.id(), true)
 						//item.streamUpdateData;
 
-						//console.log(unit);
+						console.log(unit.inventory);
 						
 						break;
 
