@@ -2769,8 +2769,6 @@ var ActionComponent = TaroEntity.extend({
 						player.joinGame();
 						break;
 
-
-
 					case 'enableAI':
 						var unit = self._script.variable.getValue(action.unit, vars);
 						if (unit && unit.ai) {
@@ -2783,6 +2781,18 @@ var ActionComponent = TaroEntity.extend({
 						if (unit && unit.ai) {
 							unit.ai.disable();
 						}
+						break;
+
+					case 'playertest':
+						var unit = self._script.variable.getValue(action.unit, vars);
+						
+						unit._stats.inventorySize = 6
+						unit._stats.equipmentAllowed = 6
+						unit._stats.itemIds.push(null);
+						//item.streamUpdateData;
+
+						//console.log(unit);
+						
 						break;
 
 					case 'setUnitTargetPosition': // deprecated
@@ -2808,6 +2818,7 @@ var ActionComponent = TaroEntity.extend({
 							unit.ai.moveToTargetPosition(position.x, position.y);
 						}
 						break;
+
 					case 'aiAttackUnit':
 						var unit = self._script.variable.getValue(action.unit, vars);
 						var targetUnit = self._script.variable.getValue(action.targetUnit, vars);
@@ -2822,7 +2833,6 @@ var ActionComponent = TaroEntity.extend({
 							unit.ai.goIdle();
 						}
 						break;
-
 
 					case 'makePlayerTradeWithPlayer':
 						var playerA = self._script.variable.getValue(action.playerA, vars);
