@@ -1270,6 +1270,21 @@ var ActionComponent = TaroEntity.extend({
 
 						break;
 
+					case 'changeProjectileType':
+						var projectileTypeId = self._script.variable.getValue(action.projectileType, vars);
+						//console.log(entity)
+						if (entity && entity._category == 'projectile' && projectileTypeId != null) {
+							console.log("test1")
+							entity.streamUpdateData([{ type: projectileTypeId }]);
+						} else {
+							console.log("test2")
+						//	if (!entity) invalidParameters.push('unit');
+						//	if (!unitTypeId) invalidParameters.push('unit type');
+						//	throw new Error(`cannot change unit type. invalid parameter(s) given: ${invalidParameters.toString()}`);
+						}
+
+						break;
+
 					case 'changeUnitSpeed':
 
 						var bonusSpeed = self._script.variable.getValue(action.unitSpeed, vars);
