@@ -264,6 +264,14 @@ var Projectile = TaroEntityPhysics.extend({
 						}
 						break;
 
+					case 'scale':
+						this._stats[attrName] = newValue;
+						if (taro.isServer) {
+							this._stats.scale = newValue;
+							this._scaleTexture();
+						}
+						break;
+
 					case 'sourceUnitId':
 						this._stats.sourceUnitId = newValue;
 						break;
